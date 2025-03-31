@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "emp_id": 1,
+        "client_id": 1,
+        "tech_id": 1,
+        "date": "22:00",
+        "total_price": 200000,
+        "status": 1,
+        "createdAt": "2025-03-31/17:13:58",
+        "updatedAt": "2025-04-1/17:13:58"      
+    }
+]
