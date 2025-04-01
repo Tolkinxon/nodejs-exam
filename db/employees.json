@@ -2,6 +2,7 @@
     {
         "id": 1,
         "email": "tolkinxon@gmail.com",
+        "password": "tolkinxon",
         "phone_num": "+998774779844",
         "act_count": 3,
         "username": "tolkinxon",
