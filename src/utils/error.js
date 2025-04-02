@@ -16,8 +16,7 @@ export class ServerError extends Error{
 
 export const globalError = (res, err) => {
     let status = err.status || 500;
-        res.statusCode = status;
-        // res.writeHeader(status, {"content-type": "application/json"});
-        res.setHeader('Content-Type', 'application/json');
-    return res.status(status).json({message: err.message, status});
+        res.type("application/json");
+        res.status(status);
+    return res.json({message: err.message, status});
 }                   
