@@ -16,6 +16,7 @@ app.use(express.json());
 
 app.get('/api/employees', employeesController.GET);
 app.get('/api/acts', actsController.GET);
+app.get('/api/acts/employee', actsController.EMPLOYEE);
 app.get('/api/clients', clientsController.GET);
 app.get('/api/technics', technicsController.GET);
 app.get('/api/prices', pricesController.GET);
