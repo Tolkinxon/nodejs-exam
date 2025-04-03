@@ -11,7 +11,7 @@ const { PORT } = serverConfig;
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json());    
 
 
 app.get('/api/employees', employeesController.GET);
@@ -21,7 +21,8 @@ app.get('/api/technics', technicsController.GET);
 app.get('/api/prices', pricesController.GET);
 
 app.post('/api/auth/login', authController.LOGIN);
+app.get('/api/auth/check-token', authController.CHECKTOKEN);
 
-app.listen(PORT, ()=>{
+app.listen(PORT,'127.0.0.1', ()=>{
     console.log(`Server is runnig on port ${PORT}`);
 })

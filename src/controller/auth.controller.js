@@ -1,11 +1,11 @@
 import { readFileDb } from "../models/readFile.js"
 import { CliesntError, globalError } from "../utils/error.js";
 import { validator } from "../utils/validator.js";
+import { tokenServise } from "../lib/jwt/jwt.js";
+const { createToken } = tokenServise;
 
 export const authController = {
     LOGIN: async function (req, res){
-        res.setHeader('Content-Type', 'application/json');
-        
         const user = req.body;
         try {
             let validated = validator(res, user);
@@ -15,7 +15,13 @@ export const authController = {
                     const users = await readFileDb(fileName);
                     const foundUser = users.find(item => item.email == user.email);
                     if(foundUser && foundUser !== -1) {
-                        if(foundUser.password == user.password) return res.status(200).json({...foundUser, role: fileName});
+                        if(foundUser.password == user.password) {
+                            return res.status(200).json({
+                                message: "User successfully logged!", 
+                                status: 200, 
+                                role: fileName,
+                                accessToken: createToken({...foundUser, role: fileName, userAgent: req.headers['user-agent']})});
+                        }
                     }
                 }
                 throw new CliesntError('This user not found', 401)
@@ -24,5 +30,14 @@ export const authController = {
             globalError(res, error)
         }
         
+    },
+
+    CHECKTOKEN: async function (req, res) {
+        const token = req.headers.authorization;
+        console.log(token);
+        
+        let verifyToken = tokenServise.verifyToken(token);
+        console.log(verifyToken.role);
+        res.json('hello');
     }
 }
