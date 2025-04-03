@@ -1,5 +1,5 @@
 import fs from "node:fs/promises";
-import serverConfig from "../config";
+import serverConfig from "../config.js";
 const { dbPath } = serverConfig
 
 export const writeFileDb = async (fileName, data) => {
