@@ -1,6 +1,22 @@
 [
     {
         "id": 1,
-        "name": "fridge"
+        "name": "Fridge"
+    },
+    {
+        "id": 2,
+        "name": "Microwave"
+    },
+    {
+        "id": 3,
+        "name": "TV"
+    },
+    {
+        "id": 4,
+        "name": "Computer"
+    },
+    {
+        "id": 5,
+        "name": "Blender"
     }
 ]

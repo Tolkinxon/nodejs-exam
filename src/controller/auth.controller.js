@@ -1,5 +1,6 @@
 import { readFileDb } from "../models/readFile.js"
 import { CliesntError, globalError } from "../utils/error.js";
+import { checkToken } from "../models/checkToken.js";
 import { validator } from "../utils/validator.js";
 import { tokenServise } from "../lib/jwt/jwt.js";
 const { createToken } = tokenServise;
@@ -28,16 +29,12 @@ export const authController = {
             }
         } catch (error) {
             globalError(res, error)
-        }
+        } 
         
     },
 
     CHECKTOKEN: async function (req, res) {
-        const token = req.headers.authorization;
-        console.log(token);
-        
-        let verifyToken = tokenServise.verifyToken(token);
-        console.log(verifyToken.role);
-        res.json('hello');
+        const foundUser = await checkToken(req, res);
+        res.json(foundUser);
     }
 }
