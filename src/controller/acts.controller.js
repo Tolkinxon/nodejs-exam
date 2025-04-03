@@ -1,5 +1,6 @@
 import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
+import { writeFileDb } from "../models/writeFile.js";
 
 export const actsController = {
     GET: async function (req, res){
@@ -19,4 +20,20 @@ export const actsController = {
             res.json(employeeOrdersMapped);       
         }
     },
+    PUT: async function(req, res) {
+        try {
+                const id = req.params.id;
+                const updatedData = req.body;
+                const acts = await readFileDb('acts');
+                const findIndex = acts.findIndex(item => item.id == id);
+                    if(!(findIndex == -1)) {
+                        acts[findIndex] = {...acts[findIndex], ...updatedData};
+                        const wrFile = writeFileDb('acts', acts); 
+                        if(wrFile) return res.status(201).json({message: "Orders successfully updated", status: 201});
+                        throw new ServerError('Something went wrong!');
+                    } throw new CliesntError('Not Found!');
+                } catch (error) {
+                    globalError(res, error)
+                }
+    }
 }

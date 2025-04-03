@@ -5,18 +5,12 @@
         "password": "tolkinxon",
         "phone_num": "998774779800",
         "act_count": 2,
-        "username": "tolkin",
+        "username": "tolkinxon",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-03/21:35"
+        "updatedAt": "2025-04-03/23:49"
     },
     {
-        "id": 2,
-        "email": "bobur@gmail.com",
-        "password": "bobur",
-        "phone_num": "998774779843",
-        "act_count": 0,
-        "username": "bobur",
-        "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-1/17:13:58"
+        "updatedAt": "2025-04-03/0:17",
+        "status": 1
     }
 ]
