@@ -22,6 +22,9 @@ app.put('/api/acts/:id', actsController.PUT);
 app.get('/api/acts/employee', actsController.EMPLOYEE);
 
 app.get('/api/clients', clientsController.GET);
+app.post('/api/clients', clientsController.POST);
+
+
 app.get('/api/technics', technicsController.GET);
 app.get('/api/prices', pricesController.GET);
 

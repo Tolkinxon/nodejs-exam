@@ -8,5 +8,15 @@
         "username": "tolkinxon",
         "createdAt": "2025-03-31/17:13:58",
         "updatedAt": "2025-04-03/23:49"
+    },
+    {
+        "id": 2,
+        "email": "bobur@gmail.com",
+        "password": "bobur",
+        "phone_num": "9987747734800",
+        "act_count": 1,
+        "username": "bobur",
+        "createdAt": "2025-03-29/17:13:58",
+        "updatedAt": "2025-04-03/23:49"
     }
 ]

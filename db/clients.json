@@ -6,6 +6,22 @@
         "email": "ali@gmail.com",
         "password": "ali",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-1/17:13:58"  
+        "updatedAt": "2025-04-1/17:13:58"
+    },
+    {
+        "username": "eta",
+        "email": "vvv@gmail.com",
+        "phone": "423",
+        "password": "sevinch",
+        "createdAt": "2025-04-04/22:6",
+        "id": 2
+    },
+    {
+        "username": "eta",
+        "email": "vv@gmail.com",
+        "phone": "423",
+        "password": "sevinch",
+        "createdAt": "2025-04-04/22:7",
+        "id": 3
     }
 ]

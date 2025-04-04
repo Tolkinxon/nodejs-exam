@@ -1,7 +1,7 @@
 import { readFileDb } from "../models/readFile.js"
 import { CliesntError, globalError } from "../utils/error.js";
 import { checkToken } from "../models/checkToken.js";
-import { validator } from "../utils/validator.js";
+import { loginValidator } from "../utils/validator.js";
 import { tokenServise } from "../lib/jwt/jwt.js";
 const { createToken } = tokenServise;
 
@@ -9,7 +9,7 @@ export const authController = {
     LOGIN: async function (req, res){
         const user = req.body;
         try {
-            let validated = validator(res, user);
+            let validated = loginValidator(res, user);
             if(validated){
                 const usersArr = ['clients', 'employees', 'admins'];
                 for(let fileName of usersArr){
