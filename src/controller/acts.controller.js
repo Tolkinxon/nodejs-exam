@@ -1,6 +1,7 @@
 import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
 import { writeFileDb } from "../models/writeFile.js";
+import { globalError, ServerError } from "../utils/error.js";
 
 export const actsController = {
     GET: async function (req, res){
@@ -35,5 +36,18 @@ export const actsController = {
                 } catch (error) {
                     globalError(res, error)
                 }
-    }
+    },
+    POST: async function (req, res){
+        try {
+            const newAct = req.body;
+            const acts = await readFileDb('acts');
+            newAct.id = acts.length ? acts.at(-1).id + 1:1;
+            acts.push(newAct);
+            const isWrite = await writeFileDb('acts', acts);
+            if(isWrite) return res.status(200).json({message: "This action successfully added", status: 200}); 
+            throw new ServerError('Something went wrong!');
+        } catch (error) {
+            globalError(res, error);
+        }
+    },
 }

@@ -18,6 +18,7 @@ app.get('/api/employees', employeesController.GET);
 app.put('/api/employees/:id', employeesController.PUT);
 
 app.get('/api/acts', actsController.GET);
+app.post('/api/acts', actsController.POST);
 app.put('/api/acts/:id', actsController.PUT);
 app.get('/api/acts/employee', actsController.EMPLOYEE);
 
