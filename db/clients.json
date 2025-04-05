@@ -2,42 +2,19 @@
     {
         "id": 1,
         "username": "ali",
-        "phone": "+998994729844",
+        "phone": "998994729844",
         "email": "ali@gmail.com",
         "password": "ali",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-1/17:13:58"
+        "updatedAt": "2025-04-05/14:4",
+        "phone_num": "998994729844"
     },
     {
-        "username": "dfd",
-        "email": "fa@fs.re",
-        "phone": "121",
-        "password": "sevinch",
-        "createdAt": "2025-04-04/22:10",
+        "username": "mansur",
+        "email": "mansur@gmail.com",
+        "phone": "54353",
+        "password": "mansur",
+        "createdAt": "2025-04-05/17:44",
         "id": 2
-    },
-    {
-        "username": "fdfd",
-        "email": "fdf@dfd.ds",
-        "phone": "111",
-        "password": "sevinch",
-        "createdAt": "2025-04-04/22:11",
-        "id": 3
-    },
-    {
-        "username": "ewew",
-        "email": "faf@fdfd.re",
-        "phone": "312",
-        "password": "sevinch",
-        "createdAt": "2025-04-04/22:13",
-        "id": 4
-    },
-    {
-        "username": "fdsds",
-        "email": "fas@dfas.fe",
-        "phone": "312",
-        "password": "sevinch",
-        "createdAt": "2025-04-04/22:25",
-        "id": 5
     }
 ]

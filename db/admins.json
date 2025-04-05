@@ -1,7 +1,9 @@
 [
     {
         "id": 1,
+        "username": "tolkinxon",
         "email": "user@gmail.com",
-        "password": "user"
+        "password": "user",
+        "updatedAt": "2025-04-05/17:47"
     }
 ]

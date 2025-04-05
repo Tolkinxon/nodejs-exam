@@ -3,20 +3,20 @@
         "id": 1,
         "email": "tolkinxon@gmail.com",
         "password": "tolkinxon",
-        "phone_num": "998774779800",
+        "phone_num": "99953452452",
         "act_count": 2,
         "username": "tolkinxon",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-03/23:49"
+        "updatedAt": "2025-04-05/18:37"
     },
     {
+        "username": "Murod",
+        "phone_num": "3444",
+        "email": "murod@gmail.com",
+        "password": "murod",
+        "createdAt": "2025-04-05/17:44",
         "id": 2,
-        "email": "bobur@gmail.com",
-        "password": "bobur",
-        "phone_num": "9987747734800",
-        "act_count": 1,
-        "username": "bobur",
-        "createdAt": "2025-03-29/17:13:58",
-        "updatedAt": "2025-04-03/23:49"
+        "act_count": 0,
+        "updatedAt": "2025-04-05/18:2"
     }
 ]

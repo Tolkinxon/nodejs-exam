@@ -2,6 +2,7 @@ import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
 import { writeFileDb } from "../models/writeFile.js";
 import { globalError, ServerError } from "../utils/error.js";
+import { actsValidator } from "../utils/validator.js";
 
 export const actsController = {
     GET: async function (req, res){
@@ -11,14 +12,31 @@ export const actsController = {
     EMPLOYEE: async function (req, res){
         const acts = await readFileDb('acts');
         const technics = await readFileDb('technics');
+        const clients = await readFileDb('clients');
         const employee = await checkToken(req, res);
         if(employee) {
             const employeeOrders = acts.filter(item => item.emp_id == employee.id);
             const employeeOrdersMapped = employeeOrders.map(item => {
                 const foundName = technics.find(technicsItem => technicsItem.id == item.tech_id);
-                return {...item, name: foundName.name};
+                const foundClientName = clients.find(clientsItem => clientsItem.id == item.client_id);
+                return {...item, name: foundName.name, clientName: foundClientName.username};
             })
             res.json(employeeOrdersMapped);       
+        }
+    },
+    CLIENT: async function (req, res){
+        const acts = await readFileDb('acts');
+        const technics = await readFileDb('technics');
+        const employee = await readFileDb('employees');
+        const client = await checkToken(req, res);
+        if(client) {
+            const clientOrders = acts.filter(item => item.client_id == client.id);
+            const clinetOrdersMapped = clientOrders.map(item => {
+                const foundName = technics.find(technicsItem => technicsItem.id == item.tech_id);
+                const foundEmployeeName = employee.find(employeeItem => employeeItem.id == item.emp_id);
+                return {...item, name: foundName.name, employeeName: foundEmployeeName.username};
+            })
+            res.json(clinetOrdersMapped);       
         }
     },
     PUT: async function(req, res) {
@@ -38,16 +56,22 @@ export const actsController = {
                 }
     },
     POST: async function (req, res){
-        try {
-            const newAct = req.body;
-            const acts = await readFileDb('acts');
-            newAct.id = acts.length ? acts.at(-1).id + 1:1;
-            acts.push(newAct);
-            const isWrite = await writeFileDb('acts', acts);
-            if(isWrite) return res.status(200).json({message: "This action successfully added", status: 200}); 
-            throw new ServerError('Something went wrong!');
-        } catch (error) {
+        const newAct = req.body;
+        console.log(newAct);
+        
+        const validate = actsValidator(res,newAct);
+       if(validate){
+               try {
+               const acts = await readFileDb('acts');
+               newAct.id = acts.length ? acts.at(-1).id + 1:1;
+               acts.push(newAct);
+               const isWrite = await writeFileDb('acts', acts);
+               if(isWrite) return res.status(200).json({message: "This action successfully added", status: 200}); 
+               throw new ServerError('Something went wrong!');
+           }
+         catch (error) {
             globalError(res, error);
         }
+    }
     },
 }
