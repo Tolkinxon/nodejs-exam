@@ -142,7 +142,7 @@ elForm.addEventListener('submit', async (evt) => {
         return obj;
         }, {});
     actData.createdAt = timestamp();
-    actData.status = "0";
+    actData.status = 0;
     actData.date = timestamp().split('/')[0];
 
     const id = await postClient(clientData);

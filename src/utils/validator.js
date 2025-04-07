@@ -51,7 +51,7 @@ export function actsValidator(res, {client_id, date, status, createdAt, emp_id, 
     try {
         if(!client_id) throw new CliesntError('Client id required!', 400);
         if(!date) throw new CliesntError('Date required!', 400);
-        if(!status) throw new CliesntError('Status required!', 400);
+        if(!(status == 0)) throw new CliesntError('Status required!', 400);
         if(!createdAt) throw new CliesntError('createdAt required!', 400  );
         if(!emp_id) throw new CliesntError('Employee id required!', 400  );
         if(!tech_id) throw new CliesntError('Technics id required!', 400  );

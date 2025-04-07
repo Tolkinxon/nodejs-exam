@@ -1,20 +1,10 @@
 [
     {
-        "id": 1,
-        "username": "ali",
-        "phone": "998994729844",
-        "email": "ali@gmail.com",
-        "password": "ali",
-        "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-05/14:4",
-        "phone_num": "998994729844"
-    },
-    {
         "username": "mansur",
         "email": "mansur@gmail.com",
-        "phone": "54353",
-        "password": "mansur",
-        "createdAt": "2025-04-05/17:44",
-        "id": 2
+        "phone": "998998887766",
+        "password": "hhHH66fadfads",
+        "createdAt": "2025-04-07/19:53",
+        "id": 1
     }
 ]

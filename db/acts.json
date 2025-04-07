@@ -1,23 +1,35 @@
 [
     {
-        "id": 1,
-        "emp_id": 1,
-        "client_id": 1,
-        "tech_id": 1,
-        "date": "2025-03-45",
-        "total_price": 50000,
+        "total_price": "50000",
+        "tech_id": "1",
+        "emp_id": "1",
+        "createdAt": "2025-04-07/19:53",
         "status": 1,
-        "createdAt": "2025-03-45/17:13:58",
-        "updatedAt": "2025-04-05/18:4"
+        "date": "2025-04-07",
+        "client_id": 1,
+        "id": 1,
+        "updatedAt": "2025-04-07/19:57"
     },
     {
         "total_price": "30000",
-        "tech_id": 2,
-        "emp_id": 1,
-        "createdAt": "2025-04-05/18:37",
-        "status": "0",
-        "date": "2025-04-05",
-        "client_id": "2",
-        "id": 2
+        "tech_id": "2",
+        "emp_id": "1",
+        "createdAt": "2025-04-07/19:54",
+        "status": 1,
+        "date": "2025-04-07",
+        "client_id": 1,
+        "id": 2,
+        "updatedAt": "2025-04-07/19:55"
+    },
+    {
+        "total_price": "100000",
+        "tech_id": "4",
+        "emp_id": "1",
+        "createdAt": "2025-04-07/19:54",
+        "status": 1,
+        "date": "2025-04-07",
+        "client_id": 1,
+        "id": 3,
+        "updatedAt": "2025-04-07/19:58"
     }
 ]
