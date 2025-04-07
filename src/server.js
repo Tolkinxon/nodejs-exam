@@ -8,12 +8,15 @@ import { technicsController } from './controller/technics.controller.js';
 import { pricesController } from './controller/prices.controller.js';
 import { authController } from './controller/auth.controller.js';
 import { adminsController } from './controller/admins.controller.js';
+import makeRoutes from '../test.js';
 const { PORT } = serverConfig;
 
 const app = express();
 app.use(cors());
-app.use(express.json());    
+app.use(express.json());  
 
+// app.get(reqUrl.includes('.'), sendFile(reqUrl, res, true));
+makeRoutes(app);
 app.get('/api/admins', adminsController.GET);
 app.put('/api/admins/:id', adminsController.PUT);
 
