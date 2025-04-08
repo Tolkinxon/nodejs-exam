@@ -70,5 +70,6 @@ elForm.addEventListener('submit',(evt)=>{
     clientData = clientData ? JSON.parse(clientData) : '';
 
     const updatedData = {...clientData, ...user};
-    update(updatedData.id, updatedData);   
+    update(updatedData.id, updatedData);  
+    return alert('Client successfully updated'); 
 });

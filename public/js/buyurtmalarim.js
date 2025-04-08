@@ -83,6 +83,7 @@ elList.addEventListener('click', (evt)=>{
             
             updateOrderStatus(id, updatedData);
             updateEmployee(empId, {act_count: Number(act_count)-1, updatedAt: updatedData.updatedAt})
+            window.location.reload();
         }
     }
 })

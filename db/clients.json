@@ -1,36 +1,3 @@
 [
-    {
-        "username": "munisa",
-        "email": "munisa@gmail.com",
-        "phone": "998997776655",
-        "password": "hhffYYHH66",
-        "createdAt": "2025-04-07/0:13",
-        "id": 1
-    },
-    {
-        "username": "ezoz",
-        "email": "ezoz@gmai.com",
-        "phone": "998997776655",
-        "password": "gjfkgf^^66hhHH",
-        "createdAt": "2025-04-07/0:46",
-        "id": 2
-    },
-    {
-        "username": "holid mansurov",
-        "email": "holid@gmail.com",
-        "phone": "998996665577",
-        "password": "hhhYY666",
-        "createdAt": "2025-04-07/0:54",
-        "id": 3
-    },
-    {
-        "username": "zokir majidov",
-        "email": "zokir@gmail.com",
-        "phone": "998997776655",
-        "password": "fhfhHHH55",
-        "createdAt": "2025-04-08/10:22",
-        "id": 4,
-        "phone_num": "998997776655",
-        "updatedAt": "2025-04-08/10:23"
-    }
+
 ]

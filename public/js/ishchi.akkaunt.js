@@ -71,4 +71,5 @@ elForm.addEventListener('submit',(evt)=>{
 
     const updatedData = {...userData, ...user};
     update(updatedData.id, updatedData);   
+    return alert('Employee successfully updated');
 });
