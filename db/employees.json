@@ -4,10 +4,10 @@
         "email": "tolkinxon@gmail.com",
         "password": "tolkinxon",
         "phone_num": "99953452452",
-        "act_count": 0,
+        "act_count": 3,
         "username": "tolkinxon",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-07/19:58"
+        "updatedAt": "2025-04-07/0:46"
     },
     {
         "username": "Murod",
@@ -16,7 +16,17 @@
         "password": "murod",
         "createdAt": "2025-04-05/17:44",
         "id": 2,
-        "act_count": 0,
-        "updatedAt": "2025-04-05/18:2"
+        "act_count": 3,
+        "updatedAt": "2025-04-08/10:21"
+    },
+    {
+        "username": "mansur",
+        "phone_num": "998996667755",
+        "email": "mansur@gmail.com",
+        "password": "fhudd66TT",
+        "createdAt": "2025-04-07/0:38",
+        "id": 3,
+        "act_count": 1,
+        "updatedAt": "2025-04-08/10:22"
     }
 ]

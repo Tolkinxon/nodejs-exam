@@ -5,8 +5,13 @@ if(!token) window.location = '/login.html';
 const elForm = document.querySelector('.js-form');
 const elTechnics = document.querySelector('.js-technics-list');
 const elEployees = document.querySelector('.js-employees-list');
+const elUserName = document.querySelector('.js-user-name');
+const elUserNumber = document.querySelector('.js-user-number');
+const elUserPassword = document.querySelector('.js-user-password');
+
 const elPrice = document.querySelector('.js-price');
 const elBtn = document.querySelector('.js-btn');
+
 
 async function updateEmployee(id, data) {
     const req = await fetch(`http://localhost:4000/api/employees/${id}`, {
@@ -19,7 +24,6 @@ async function updateEmployee(id, data) {
     const res = await req.json();
     console.log(res);
 }
-
 
 function renderEmployees(arr, node){
     node.innerHTML = '';
@@ -95,10 +99,42 @@ async function postAct(data) {
     console.log(res);
 }
 
+async function checkEmail(data) {
+    const req = await fetch('http://localhost:4000/api/auth/check-email',{
+        method: "POST",
+        headers:{
+            "Content-type":"application/json"
+        },
+        body: JSON.stringify({email: data})
+    });
+    const res = await req.json();
+    return res
+}
 
-elForm.addEventListener('input', (evt)=>{
+elForm.addEventListener('input', async (evt)=>{
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     let formData  = new FormData(elForm);
     formData = Object.fromEntries(formData);
+
+    if(emailPattern.test(formData.email)) {
+        console.log(formData.email);
+        const user = await checkEmail(formData.email);
+
+        elUserPassword.disabled = false;
+        elUserNumber.disabled = false;
+        elUserName.disabled = false;
+
+        console.log(user.user);
+        
+
+        if(user.user){
+            const { password, phone, username } = user.user
+            elUserPassword.value = password;
+            elUserNumber.value = phone;
+            elUserName.value = username;
+        }
+    }
+
     if(formData.tech_id) {
         let prices = window.localStorage.getItem('prices');
         prices = prices ? JSON.parse(prices):'';
@@ -147,7 +183,8 @@ elForm.addEventListener('submit', async (evt) => {
 
     const id = await postClient(clientData);
     actData.client_id = id;
-    postAct(actData);   
+    postAct(actData);  
+    window.location = 'royhat.buyurtmalar.html'; 
 })
 
 const urls = [

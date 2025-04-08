@@ -31,4 +31,5 @@ elForm.addEventListener('submit', (evt)=>{
     formData = Object.fromEntries(formData);
     formData.createdAt = timestamp();
     postEmployee(formData);
+    window.location = 'royhat.ishchilar.html';
 })

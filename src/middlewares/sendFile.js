@@ -8,8 +8,6 @@ import { CliesntError, globalError } from "../utils/error.js";
 
 export const sendFile = async (file, res, isStatic = false) => {
     const fullPath = isStatic ? publicPath(file) : viewsPath(file);
-    console.log(fullPath);
-    
     try {
         if(fs.existsSync(fullPath)) {
             const contentType = mimeTypes[path.extname(fullPath)];

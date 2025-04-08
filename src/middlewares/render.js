@@ -1,12 +1,11 @@
 import fs from "node:fs";
-import { sendFile } from "./src/middlewares/sendFile.js";
+import { sendFile } from "./sendFile.js";
 
         
 const arrHtml= fs.readdirSync('./src/views');
 const arrAllFIles = fs.readdirSync('./public/js');
-console.log(arrAllFIles);
 
-function makeRoutes(app){
+function render(app){
     for(let route of arrHtml){
         const r = '/'+ route;
         app.get(r,(req, res)=>{
@@ -21,4 +20,4 @@ function makeRoutes(app){
     }
 };
 
-export default makeRoutes;
+export default render;

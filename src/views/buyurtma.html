@@ -42,25 +42,25 @@
                         <label class="form-label">Foydalanuvchi email manzili</label>
                         <input type="email" name="email" placeholder="falonchi@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                       </div>
-                      <label class="form-label">Buyurtmachi ismi</label>
-                      <input type="text" name="username" placeholder="Falonchi falonchiyev" class="form-control" autocomplete="off">
+                      <label class="form-label" >Buyurtmachi ismi</label>
+                      <input type="text" name="username" placeholder="Falonchi falonchiyev" class="form-control js-user-name" autocomplete="off" disabled>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Buyurtmachi raqami</label>
-                      <input type="number" name="phone" placeholder="998996785432" class="form-control">
+                      <input type="number" name="phone" placeholder="998996785432" class="form-control js-user-number" disabled>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Buyurtmachi paroli</label>
-                      <input type="password" name="password" class="form-control">
+                      <input type="password" name="password" class="form-control js-user-password" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="tech">Texnika</label>
-                        <select class="form-select js-technics-list" name="tech_id" id="" >
+                        <select class="form-select js-technics-list" name="tech_id" id="">
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="employee">Ishchi biriktirish</label>
-                        <select class="form-select js-employees-list" name="emp_id" id="employee" >
+                        <select class="form-select js-employees-list" name="emp_id" id="employee">
                         </select>
                     </div>
                     <div class="mb-3">
@@ -79,6 +79,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="js/buyurtma.js"></script>
+    <script src="/buyurtma.js"></script>
   </body>
 </html>

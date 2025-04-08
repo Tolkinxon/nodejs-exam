@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import serverConfig from './config.js';
+import render from './middlewares/render.js';
 import { employeesController } from './controller/employees.controller.js';
 import { actsController } from './controller/acts.controller.js';
 import { clientsController } from './controller/clients.controller.js';
@@ -8,15 +9,13 @@ import { technicsController } from './controller/technics.controller.js';
 import { pricesController } from './controller/prices.controller.js';
 import { authController } from './controller/auth.controller.js';
 import { adminsController } from './controller/admins.controller.js';
-import makeRoutes from '../test.js';
 const { PORT } = serverConfig;
 
 const app = express();
 app.use(cors());
 app.use(express.json());  
 
-// app.get(reqUrl.includes('.'), sendFile(reqUrl, res, true));
-makeRoutes(app);
+render(app);
 app.get('/api/admins', adminsController.GET);
 app.put('/api/admins/:id', adminsController.PUT);
 
@@ -39,6 +38,7 @@ app.get('/api/technics', technicsController.GET);
 app.get('/api/prices', pricesController.GET);
 
 app.post('/api/auth/login', authController.LOGIN);
+app.post('/api/auth/check-email', authController.CHECKEMAIL);
 app.get('/api/auth/check-token', authController.CHECKTOKEN);
 
 app.listen(PORT,'127.0.0.1', ()=>{

@@ -10,7 +10,6 @@ async function login(data) {
     });
 
     const res = await req.json();
-
     if(req.ok){
         window.localStorage.setItem('token', res.accessToken);
         if(res.role == 'admins') return window.location = 'admin.html';
@@ -19,7 +18,6 @@ async function login(data) {
     }
     
 }
-
 
 elForm.addEventListener('submit',(evt)=>{
     evt.preventDefault();

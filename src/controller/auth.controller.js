@@ -32,9 +32,33 @@ export const authController = {
         } 
         
     },
-
     CHECKTOKEN: async function (req, res) {
         const foundUser = await checkToken(req, res);
         res.json(foundUser);
+    },
+    CHECKEMAIL:  async function (req, res){
+        const user = req.body;
+        console.log(user);
+
+        try {
+                    const users = await readFileDb('clients');
+                    
+                    const foundUser = users.find(item => item.email == user.email);
+                    if(foundUser && foundUser !== -1) {
+                        return res.status(200).json({
+                            message: "User successfully founded!", 
+                            user: foundUser,
+                            status: 200, 
+                        });
+                    } else {
+                        return res.status(200).json({
+                            message: "User are not avialable", 
+                            status: 200, 
+                        });
+                    }
+        } catch (error) {
+            globalError(res, error)
+        } 
+        
     }
 }
