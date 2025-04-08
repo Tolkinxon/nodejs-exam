@@ -5,8 +5,26 @@
         "password": "tolkinxon",
         "phone_num": "99953452452",
         "act_count": 0,
-        "username": "tolkinxon soliyev",
+        "username": "tolkinxon",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-08/13:33"
+        "updatedAt": "2025-04-08/20:41"
+    },
+    {
+        "email": "holid@gmail.com",
+        "phone_num": "998994524266",
+        "password": "hhgHH884",
+        "username": "tolkinxon",
+        "createdAt": "2025-03-31/17:13:58",
+        "id": 2,
+        "act_count": 0
+    },
+    {
+        "email": "holid1q@gmail.com",
+        "phone_num": "998994524266",
+        "password": "hhfHH884",
+        "username": "tolkinxon",
+        "createdAt": "2025-03-31/17:13:58",
+        "id": 3,
+        "act_count": 0
     }
 ]

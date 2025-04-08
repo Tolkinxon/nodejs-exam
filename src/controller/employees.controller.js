@@ -2,6 +2,7 @@ import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
 import { writeFileDb } from "../models/writeFile.js";
 import { CliesntError, globalError, ServerError } from "../utils/error.js";
+import { employeeValidate } from "../utils/joi.js";
 import { employeeValidator } from "../utils/validator.js";
 
 export const employeesController = {
@@ -38,8 +39,9 @@ export const employeesController = {
     POST: async function (req, res){
         try {
             const employee = req.body;
-            const validate =  employeeValidator(res, employee);
-            if(validate){
+            const { error } = employeeValidate.validate(employee);
+            const err = error?.details[0].message;
+            if(!error){
                 const employees = await readFileDb('employees');
                 const isExcist = employees.some(item => item.email == employee.email);
                 if(isExcist) throw new CliesntError("This user already excist!", 400);
@@ -49,6 +51,8 @@ export const employeesController = {
                 const isWrite = await writeFileDb('employees', employees);
                 if(isWrite) return res.status(201).json({message: "This employee successfully added", status: 201});
                 throw new ServerError('Something went wrong')
+            } else {
+                res.status(400).json({message: err, status: 400});
             }
         } catch (error) {
             globalError(res, error)

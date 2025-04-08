@@ -16,7 +16,6 @@ async function login(data) {
         else if(res.role == 'employees') return window.location = 'ishchi.html';
         else if(res.role == 'clients') return window.location = 'client.html';
     }
-    
 }
 
 elForm.addEventListener('submit',(evt)=>{

@@ -5,7 +5,7 @@ import path from "node:path";
 const serverConfig = {
     dbPath: (fileName) => path.join(process.cwd(), 'db', fileName + '.json'),
     publicPath: (url) => path.join(process.cwd(), 'public', url),
-    viewsPath: (fileName) => path.join(process.cwd(), 'src', 'views', fileName),
+    viewsPath: (fileName) => path.join(process.cwd(), 'src', `views${fileName}`),
     PORT: process.env.PORT || 3000,
     mimeTypes: {
         ".html": "text/html",

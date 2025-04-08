@@ -1,7 +1,5 @@
 import express from 'express';
-import cors from 'cors';
 import serverConfig from './config.js';
-import render from './middlewares/render.js';
 import { employeesController } from './controller/employees.controller.js';
 import { actsController } from './controller/acts.controller.js';
 import { clientsController } from './controller/clients.controller.js';
@@ -9,13 +7,12 @@ import { technicsController } from './controller/technics.controller.js';
 import { pricesController } from './controller/prices.controller.js';
 import { authController } from './controller/auth.controller.js';
 import { adminsController } from './controller/admins.controller.js';
+import { sendFile } from './middlewares/sendFile.js';
 const { PORT } = serverConfig;
 
 const app = express();
-app.use(cors());
-app.use(express.json());  
 
-render(app);
+app.use(express.json());  
 app.get('/api/admins', adminsController.GET);
 app.put('/api/admins/:id', adminsController.PUT);
 
@@ -40,6 +37,8 @@ app.get('/api/prices', pricesController.GET);
 app.post('/api/auth/login', authController.LOGIN);
 app.post('/api/auth/check-email', authController.CHECKEMAIL);
 app.get('/api/auth/check-token', authController.CHECKTOKEN);
+
+app.use(sendFile);
 
 app.listen(PORT,'127.0.0.1', ()=>{
     console.log(`Server is runnig on port ${PORT}`);
