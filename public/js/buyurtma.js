@@ -96,7 +96,8 @@ async function postAct(data) {
         body: JSON.stringify(data)
     });
     const res = await req.json();
-    console.log(res);
+    if(req.ok) return window.location = 'royhat.buyurtmalar.html';
+    return alert(res.message);
 }
 
 async function checkEmail(data) {
@@ -184,7 +185,7 @@ elForm.addEventListener('submit', async (evt) => {
     const id = await postClient(clientData);
     actData.client_id = id;
     postAct(actData);  
-    window.location = 'royhat.buyurtmalar.html'; 
+ 
 })
 
 const urls = [

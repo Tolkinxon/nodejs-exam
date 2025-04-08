@@ -25,16 +25,17 @@ async function  postEmployee(data) {
         body: JSON.stringify(data)
     });
     const res = await req.json();
-
-    console.log(res);
+    console.log(req.ok);
+    
+    if(req.ok) return window.location = 'royhat.ishchilar.html';
+    return alert(res.message);
 }
 
 
-elForm.addEventListener('submit', (evt)=>{
+elForm.addEventListener('submit', async  (evt)=>{
     evt.preventDefault();
     let formData = new FormData(elForm);
     formData = Object.fromEntries(formData);
     formData.createdAt = timestamp();
     postEmployee(formData);
-    window.location = 'royhat.ishchilar.html';
 })
