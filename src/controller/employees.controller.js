@@ -51,9 +51,7 @@ export const employeesController = {
                 const isWrite = await writeFileDb('employees', employees);
                 if(isWrite) return res.status(201).json({message: "This employee successfully added", status: 201});
                 throw new ServerError('Something went wrong')
-            } else {
-                res.status(400).json({message: err, status: 400});
-            }
+            } else return res.status(400).json({message: err, status: 400});
         } catch (error) {
             globalError(res, error)
         }

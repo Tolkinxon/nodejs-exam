@@ -3,14 +3,16 @@ import { CliesntError, globalError } from "../utils/error.js";
 import { checkToken } from "../models/checkToken.js";
 import { loginValidator } from "../utils/validator.js";
 import { tokenServise } from "../lib/jwt/jwt.js";
+import { loginValidate } from "../utils/joi.js";
 const { createToken } = tokenServise;
 
 export const authController = {
     LOGIN: async function (req, res){
         const user = req.body;
+        const { error } = loginValidate.validate(user);
+        const err = error?.details[0].message;
         try {
-            let validated = loginValidator(res, user);
-            if(validated){
+            if(!error){
                 const usersArr = ['clients', 'employees', 'admins'];
                 for(let fileName of usersArr){
                     const users = await readFileDb(fileName);
@@ -25,8 +27,8 @@ export const authController = {
                         }
                     }
                 }
-                throw new CliesntError('This user not found', 401)
-            }
+                throw new CliesntError('This user not found', 401);
+            } else return res.status(400).json({error: err, status: 400});
         } catch (error) {
             globalError(res, error)
         } 

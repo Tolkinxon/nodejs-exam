@@ -7,6 +7,12 @@ const elForm = document.querySelector('.js-form');
 // const elPhoneNumber = document.querySelector('.js-phone-number');
 // const elEmail = document.querySelector('.js-email');
 // const elPassword = document.querySelector('.js-password');
+const elLogout = document.querySelector('.js-logout');
+
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 
 
 function timestamp(){

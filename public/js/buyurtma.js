@@ -11,6 +11,12 @@ const elUserPassword = document.querySelector('.js-user-password');
 
 const elPrice = document.querySelector('.js-price');
 const elBtn = document.querySelector('.js-btn');
+const elLogout = document.querySelector('.js-logout');
+
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 
 
 async function updateEmployee(id, data) {

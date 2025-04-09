@@ -5,9 +5,14 @@ if(!token) window.location = '/login.html';
 const elName = document.querySelector('.js-name');
 const elEmail = document.querySelector('.js-email');
 const elPassword = document.querySelector('.js-password');
-const elForm = document.querySelector('.js-form')
-const elBtn = document.querySelector('.js-btn')
+const elForm = document.querySelector('.js-form');
+const elBtn = document.querySelector('.js-btn');
+const elLogout = document.querySelector('.js-logout');
 
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 
 async function takingIdAdmin(token) {
     const req = await fetch('http://localhost:4000/api/admins',{

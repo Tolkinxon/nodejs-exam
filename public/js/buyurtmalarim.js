@@ -4,6 +4,12 @@ if(!token) window.location = '/login.html';
 
 const elList = document.querySelector('.js-employee-orders-list');
 const elOrder = document.querySelector('.js-order-template').content;
+const elLogout = document.querySelector('.js-logout');
+
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 let act_count = 0;
 
 function render(arr, node){

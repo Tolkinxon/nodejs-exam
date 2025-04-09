@@ -6,8 +6,14 @@ const elName = document.querySelector('.js-name');
 const elPhoneNumber = document.querySelector('.js-phone-number');
 const elEmail = document.querySelector('.js-email');
 const elPassword = document.querySelector('.js-password');
-const elForm = document.querySelector('.js-form')
-const elBtn = document.querySelector('.js-btn')
+const elForm = document.querySelector('.js-form');
+const elBtn = document.querySelector('.js-btn');
+const elLogout = document.querySelector('.js-logout');
+
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 
 async function takingIdClient(token) {
     const req = await fetch('http://localhost:4000/api/clients',{

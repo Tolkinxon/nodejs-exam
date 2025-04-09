@@ -4,6 +4,12 @@ if(!token) window.location = '/login.html';
 
 const elList = document.querySelector('.js-list');
 const elTemplate = document.querySelector('.js-item').content;
+const elLogout = document.querySelector('.js-logout');
+
+elLogout.addEventListener('click', ()=>{
+    window.localStorage.setItem('token', '');
+    window.location.reload();
+})
 
 function renderActs(arr, node){
     node.innerHTML = '';

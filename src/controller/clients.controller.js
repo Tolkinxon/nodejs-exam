@@ -2,6 +2,7 @@ import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
 import { writeFileDb } from "../models/writeFile.js";
 import { globalError, ServerError } from "../utils/error.js";
+import { clientValidate } from "../utils/joi.js";
 import { clientValidator } from "../utils/validator.js";
 
 export const clientsController = {
@@ -18,9 +19,10 @@ export const clientsController = {
     },
     POST: async function (req, res){
         const client = req.body;
-        const validate = clientValidator(res, client);
-        if(validate){
-            try {
+        const { error } = clientValidate.validate(client);
+        const err = error?.details[0].message;
+        try {
+            if(!error){
                 const clients = await readFileDb('clients');
                 const isExcist = clients.find(item => item.email == client.email);
                 if(isExcist) return res.status(200).json({message: 'This user already excist', status: 200, id:isExcist.id});
@@ -29,9 +31,9 @@ export const clientsController = {
                 const isWrite = writeFileDb('clients', clients);
                 if(isWrite) return res.status(200).json({message: 'This user successfully added.', status: 200, id:client.id});
                 throw new ServerError('Something went wrong!')
-            } catch (error) {
-                globalError(res, error);
-            }
+            } else return res.status(400).json({error: err, status: 400});
+        } catch (error) {
+            globalError(res, error);
         }
     },
     PUT: async function (req, res) {

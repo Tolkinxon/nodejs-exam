@@ -2,7 +2,7 @@ import { checkToken } from "../models/checkToken.js";
 import { readFileDb } from "../models/readFile.js"
 import { writeFileDb } from "../models/writeFile.js";
 import { globalError, ServerError } from "../utils/error.js";
-import { actsValidator } from "../utils/validator.js";
+import { actsValidate } from "../utils/joi.js";
 
 export const actsController = {
     GET: async function (req, res){
@@ -57,21 +57,20 @@ export const actsController = {
     },
     POST: async function (req, res){
         const newAct = req.body;
-        console.log(newAct);
-        
-        const validate = actsValidator(res,newAct);
-       if(validate){
-               try {
+        const { error } = actsValidate.validate(newAct);
+        const err = error?.details[0].message;
+        try {
+            if(!error){
                const acts = await readFileDb('acts');
                newAct.id = acts.length ? acts.at(-1).id + 1:1;
                acts.push(newAct);
                const isWrite = await writeFileDb('acts', acts);
                if(isWrite) return res.status(200).json({message: "This action successfully added", status: 200}); 
                throw new ServerError('Something went wrong!');
+            } else return res.status(400).json({error: err, status: 400});
            }
          catch (error) {
             globalError(res, error);
         }
-    }
     },
 }
