@@ -17,13 +17,14 @@ function renderActs(arr, node){
     let technics = window.localStorage.getItem('technics');
     technics = technics ? JSON.parse(technics):[];
 
-    arr.forEach(({tech_id, status, createdAt, updatedAt}) => {
+    arr.forEach(({tech_id, status, createdAt, updatedAt, id}) => {
         const clone = elTemplate.cloneNode(true);
         clone.querySelector('.js-name').textContent = technics[tech_id-1].name;
+        clone.querySelector('.js-delete').dataset.id = id;
         if(updatedAt) clone.querySelector('.js-date').textContent = updatedAt.split('/')[0];
         else clone.querySelector('.js-date').textContent = createdAt.split('/')[0];
 
-        if(status) clone.querySelector('.js-status-1').style.display = 'block';
+        if(status) clone.querySelectorAll('.js-status-1').forEach(item => item.style.display = 'block');
         else clone.querySelector('.js-status-0').style.display = 'block';
         fragment.append(clone);
     });
