@@ -5,8 +5,18 @@
         "password": "tolkinxon",
         "phone_num": "99953452452",
         "act_count": 0,
-        "username": "tolkinxon",
+        "username": "tolkinxon soliyev",
         "createdAt": "2025-03-31/17:13:58",
-        "updatedAt": "2025-04-11/19:14"
+        "updatedAt": "2025-04-11/19:37"
+    },
+    {
+        "username": "murd",
+        "phone_num": "998998887766",
+        "email": "murod@gmail.com",
+        "password": "hhdifaHHJ784",
+        "createdAt": "2025-04-11/19:33",
+        "id": 2,
+        "act_count": 0,
+        "updatedAt": "2025-04-11/19:37"
     }
 ]

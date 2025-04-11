@@ -6,5 +6,15 @@
         "password": "hgHJuia667",
         "createdAt": "2025-04-10/19:47",
         "id": 1
+    },
+    {
+        "username": "mansur sharipov",
+        "email": "mansur@gmail.com",
+        "phone": "998998887766",
+        "password": "huduUUI78",
+        "createdAt": "2025-04-11/19:34",
+        "id": 2,
+        "phone_num": "998998887766",
+        "updatedAt": "2025-04-11/19:36"
     }
 ]
