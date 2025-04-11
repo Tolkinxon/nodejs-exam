@@ -11,6 +11,18 @@ elLogout.addEventListener('click', ()=>{
     window.location.reload();
 })
 
+async function deleteAct(id) {
+    const req = await fetch(`http://localhost:4000/api/acts/${id}`, { method: "DELETE" });
+    const res = await req.json();
+    console.log(res);
+}
+
+elList.addEventListener('click', (evt)=> {
+    const id = evt.target.dataset.id;    
+    if(id) deleteAct(id);
+
+})
+
 function renderActs(arr, node){
     node.innerHTML = '';
     const fragment = document.createDocumentFragment();

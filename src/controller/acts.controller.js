@@ -73,4 +73,22 @@ export const actsController = {
             globalError(res, error);
         }
     },
+    DELETE: async function(req, res) {
+        try {
+                const id = req.params.id;
+                const acts = await readFileDb('acts');
+                const findIndex = acts.findIndex(item => item.id == id);
+                const fountAct = acts.findIndex(item => item.id == id);
+                    if(!(findIndex == -1)) {
+                        acts.splice(findIndex, 1);
+                        console.log(fountAct.emp_id);
+                        
+                        const wrFile = writeFileDb('acts', acts); 
+                        if(wrFile) return res.status(201).json({message: "Order successfully deleted", status: 201});
+                        throw new ServerError('Something went wrong!');
+                    } throw new CliesntError('Not Found!');
+                } catch (error) {
+                    globalError(res, error)
+                }
+    }
 }

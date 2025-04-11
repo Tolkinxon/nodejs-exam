@@ -23,6 +23,7 @@ app.put('/api/employees/:id', employeesController.PUT);
 app.get('/api/acts', actsController.GET);
 app.post('/api/acts', actsController.POST);
 app.put('/api/acts/:id', actsController.PUT);
+app.delete('/api/acts/:id', actsController.DELETE);
 app.get('/api/acts/employee', actsController.EMPLOYEE);
 app.get('/api/acts/client', actsController.CLIENT);
 

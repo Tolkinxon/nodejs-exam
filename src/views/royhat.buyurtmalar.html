@@ -37,22 +37,7 @@
                 <div class="hero-form-info mb-3 w-100 text-center">
                     <h2>Buyurtmalar</h2>
                 </div>
-                <div class="hero-inner d-flex align-items-center justify-between js-list">
-                    <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body text-center">
-                          <h5 class="card-title">Holodilnik</h5>
-                          <p class="card-text">2025.03.29</p>
-                          <a href="#" class="btn btn-primary disabled">Tayyorlanmoqda</a>
-                        </div>
-                      </div>
-                      <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body text-center">
-                          <h5 class="card-title">Holodilnik</h5>
-                          <p class="card-text">2025.03.29</p>
-                          <a href="#" class="btn btn-primary disabled">Tayyorlanmoqda</a>
-                        </div>
-                      </div>
-
+                <div class="hero-inner d-flex align-items-center justify-between js-list gap-2">
                 </div>
             </div>
         </div>
@@ -62,6 +47,9 @@
     <template class="js-item">
       <div class="card mx-1" style="width: 18rem;">
         <div class="card-body text-center">
+          <button class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger pointer js-status-1 js-delete" style="display: none;" style="outline: none; border: red;">
+            X
+          </button>
           <h5 class="card-title js-name">Televizor</h5>
           <p class="card-text js-date">2025.03.29</p>
           <a href="#" class="btn btn-primary disabled js-status-0" style="display: none;">Tayyorlanmoqda</a>
